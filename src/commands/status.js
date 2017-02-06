@@ -25,7 +25,7 @@ module.exports = function status(schema, args) {
     const {config, store} = init;
     const format = (config.format[schema] || {}).status || config.format[schema];
     createStatusStream(store[schema])
-      .pipe(itemSummaryFormatter(format))
+      .pipe(itemSummaryFormatter(format, config.schema[schema]))
       .pipe(proc.stdout);
   }).catch(genericErrorHandler);
 };

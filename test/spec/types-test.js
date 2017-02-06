@@ -28,7 +28,7 @@ describe('Types', () => {
     it('deserializes to a moment', () => {
       const {deserialize} = types.Date;
       expect(deserialize('2017-01-01').isValid()).toBe(true);
-      expect(deserialize('01/01/2017')).toBeUndefined();
+      expect(deserialize('01/01/2017')).toBe('');
     });
     it('validates user input', () => {
       const {validate} = types.Date;

@@ -30,7 +30,14 @@ const DEFAULT_CONFIG = {
     }
   },
   format: {
-    feature: ['id', 'title', 'started', 'completed']
+    feature: {
+      status: [
+        'id',
+        'title',
+        {key: 'started', format: 'YYYY-MM-DD'},
+        {key: 'completed', format: 'YYYY-MM-DD'}
+      ]
+    }
   }
 };
 
