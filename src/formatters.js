@@ -2,6 +2,7 @@
 const {Transform} = require('stream');
 
 const types = require('./types');
+const {ARRAY_TYPE_REGEX} = require('./constants');
 
 function formatterFactory(format) {
   return function formatter(props, schema = {}) {
@@ -21,11 +22,18 @@ function getPropKey(prop) {
 }
 
 function getPropValue(prop, key, type = 'String', item) {
-  let formatter = val => val;
-  if ('object' === typeof prop) {
-    formatter = types[type].formats[prop.format] || formatter;
+  const isArrayType = ARRAY_TYPE_REGEX.test(type);
+  const propType = isArrayType ? types[type.match(ARRAY_TYPE_REGEX)[1]] : types[type];
+
+  const formatter = propType.formats[prop.format || 'default'];
+  const arrayFormatter = propType.formats[prop.arrayFormat || 'array'];
+  const value = item[key];
+
+  if (isArrayType) {
+    return arrayFormatter(value.map(val => formatter(val)).filter(val => !!val));
   }
-  const val = formatter(item[key]);
+
+  const val = formatter(value);
   return (undefined === val ? '' : val);
 }
 

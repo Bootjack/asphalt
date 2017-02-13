@@ -22,8 +22,9 @@ module.exports = function show(schema, args) {
   const [id] = args;
   initialize().then(init => {
     const {config, store} = init;
+    const format = (config.format[schema] || {}).show;
     createShowStream(store[schema], id)
-      .pipe(itemDetailFormatter(Object.keys(config.schema[schema])))
+      .pipe(itemDetailFormatter(format, config.schema[schema]))
       .pipe(proc.stdout);
   }).catch(genericErrorHandler);
 };

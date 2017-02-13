@@ -5,10 +5,10 @@ const SEMVER_REGEX = /^(\d+)\.(\d+)\.(\d+)/;
 
 /*
 * The configuration object needs to specify the following things related to saved data:
-*  1. the schema of each property data type
-*  2. which properties to display in which context
-*  3. and what string format to use on each property (in each context).
-*  4. how to sort the items results
+*  1. √ the schema of each property data type
+*  2. √ which properties to display in which context
+*  3. √ and what string format to use on each property (in each context).
+*  4. _ how to sort the items results
 * TODO Revise the format config to suit the needs stated above
 */
 

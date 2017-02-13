@@ -23,7 +23,7 @@ function createStatusStream(items) {
 module.exports = function status(schema, args) {
   initialize().then(init => {
     const {config, store} = init;
-    const format = (config.format[schema] || {}).status || config.format[schema];
+    const format = (config.format[schema] || {}).status;
     createStatusStream(store[schema])
       .pipe(itemSummaryFormatter(format, config.schema[schema]))
       .pipe(proc.stdout);
