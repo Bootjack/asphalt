@@ -2,9 +2,25 @@
   "name": "asphalt",
   "version": "0.1.0",
   "description": "A project roadmap that lives with your code",
-  "bin": "bin/asphalt",
-  "main": "src/main.js",
+  "keywords": [
+    "feature",
+    "planning",
+    "project",
+    "management",
+    "milestone",
+    "task",
+    "tracking",
+    "utility"
+  ],
   "author": "Jason Hinebaugh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bootjack/asphalt"
+  },
+  "bugs": "https://github.com/Bootjack/asphalt/issues",
+  "bin": {
+    "asphalt": "bin/asphalt"
+  },
   "license": "MIT",
   "dependencies": {
     "moment": "2.17.1"
