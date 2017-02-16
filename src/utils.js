@@ -24,7 +24,7 @@ The latest command may not have completed successfully.
   throw new Error(message);
 }
 
-function getAsphaltConfig(configPath = '.asphalt.json') {
+function getAsphaltConfig(configPath = 'asphalt.json') {
   return new Promise((resolve, reject) => {
     fs.readFile(configPath, (err, data) => {
       if (!err) {

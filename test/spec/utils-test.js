@@ -112,14 +112,14 @@ describe('Utilities', () => {
 
   describe('makeAsphaltDirectory', () => {
     it('returns a promise that resolves with the given configuration', done => {
-      const config = {basePath: '.asphalt'};
+      const config = {basePath: 'asphalt'};
       utils.makeAsphaltDirectory(config).then(conf => {
-        expect(conf.basePath).toBe('.asphalt');
+        expect(conf.basePath).toBe('asphalt');
         done();
       });
     });
     it('resolves correctly even if the directory already exists', done => {
-      const config = {basePath: '.asphalt.duplicate'};
+      const config = {basePath: 'asphalt.duplicate'};
       utils.makeAsphaltDirectory(config).then(conf => {
         expect(conf).toBe(config);
         done();

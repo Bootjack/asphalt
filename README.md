@@ -1,11 +1,5 @@
 # Asphalt
-A task tracking utility that lives with your code.
-
-## Caution
-This is very much a work in progress. The following setup and usage **will not work** in its current state. If you're interested, you can try it out by running:
-```
-$ ./bin/asphalt create|status|show feature
-```
+A project roadmap that lives with your code.
 
 ## Setup
 ```
@@ -20,7 +14,7 @@ title: My Feature
 description: Does the things
 acceptance: Thing one
 acceptance: Thing two
-started: today
+started: 1970-01-01
 completed:
 
 Created feature abcde
@@ -30,7 +24,7 @@ Display status of all items:
 ```
 $ asphalt status feature
 id      title         started    completed
-abcde   My Feature    Today    
+abcde   My Feature    1970-01-01    
 ```
 
 Display details of one item:
@@ -39,5 +33,5 @@ $ asphalt show feature abcde
 title: My Feature
 description: Does the Things
 acceptance: Thing one, Thing two
-started: Today
+started: 1970-01-01
 ```

@@ -1,13 +1,13 @@
 {
   "name": "asphalt",
   "version": "0.1.0",
-  "description": "Feature mapping utility",
+  "description": "A project roadmap that lives with your code",
+  "bin": "bin/asphalt",
   "main": "src/main.js",
   "author": "Jason Hinebaugh",
   "license": "MIT",
   "dependencies": {
-    "moment": "2.17.1",
-    "promise": "7.1.1"
+    "moment": "2.17.1"
   },
   "devDependencies": {
     "eslint": "3.11.1",

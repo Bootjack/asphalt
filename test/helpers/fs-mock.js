@@ -11,16 +11,16 @@ const errors = {
 };
 
 const directoriesToMake = Object.assign({}, errors, {
-  '.asphalt': () => ({
+  asphalt: () => ({
     err: undefined
   }),
-  '.asphalt.duplicate': () => ({
+  'asphalt.duplicate': () => ({
     err: {code: 'EEXIST'}
   })
 });
 
 const filesToRead = Object.assign({}, errors, {
-  '.asphalt.json': () => ({
+  'asphalt.json': () => ({
     data: '{"foo": "bar"}'
   }),
   'feature.json': () => ({

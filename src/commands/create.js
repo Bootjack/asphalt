@@ -110,6 +110,8 @@ function saveElement(config, name, branch) {
     fs.writeFile(filepath, `${stringifiedBranch}\n`, err => {
       if (err) {
         proc.stderr.write(`An error occurred saving your ${name} change: ${err}`);
+      } else {
+        proc.stdout.write(`\nCreated ${name} ${latest.id}\n`);
       }
     });
   });
