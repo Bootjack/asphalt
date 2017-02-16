@@ -11,7 +11,7 @@ const initialize = require('../init');
 const {genericErrorHandler} = require('../utils');
 const {itemSummaryFormatter} = require('../formatters');
 
-function createStatusStream(items) {
+function createStatusStream(items = []) {
   return new Readable({
     objectMode: true,
     read() {

@@ -97,16 +97,20 @@ function assignElementPropTypes(schema, element) {
 
 function getSavedElements(filepath, schema) {
   return new Promise((resolve, reject) => {
-    fs.readFile(filepath, (err, content) => {
-      if (err) {
-        if (err.code === 'ENOENT') {
+    fs.readFile(filepath, (readErr, content) => {
+      if (readErr) {
+        if (readErr.code === 'ENOENT') {
           resolve([]);
         } else {
-          reject(err);
+          reject(readErr);
         }
       } else {
-        const data = JSON.parse(content).map(assignElementPropTypes.bind(this, schema));
-        resolve(data);
+        try {
+          const data = JSON.parse(content).map(assignElementPropTypes.bind(this, schema));
+          resolve(data);
+        } catch (parseErr) {
+          reject(`Unable to parse saved data at ${filepath}\n`);
+        }
       }
     });
   });
